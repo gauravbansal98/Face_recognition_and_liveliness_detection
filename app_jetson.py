@@ -4,13 +4,14 @@ from multiprocessing import Process, Lock, Queue, Value
 import time
 from liveliness import blink
 from recognition import Face_recognition
+from jetcam.csi_camera import CSICamera
 
 
 def cam_loop(images, end):
-    cap = cv2.VideoCapture(0)
-
+    cap = CSICamera(width=224, height=224, capture_width=1080, capture_height=720, capture_fps=30)
     while True:
-        _ , img = cap.read()
+        img = cap.read()
+        print("reading image")
         if img is not None:
             images.put(img)
         if end.value == 1:

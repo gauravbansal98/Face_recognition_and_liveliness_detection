@@ -10,7 +10,7 @@ from mtcnn.mtcnn import MTCNN
 
 class blink():
     def __init__(self):
-        self.EYE_AR_THRESH = 0.23
+        self.EYE_AR_THRESH = 0.25
         self.EYE_AR_CONSEC_FRAMES = 3
 
         self.COUNTER = 0
