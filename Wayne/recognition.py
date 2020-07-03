@@ -20,8 +20,6 @@ class Face_recognition():
         for result in faces:
             if result['confidence'] > .9:
                 x, y, width, height = result['box']
-                x_max = x + width
-                y_max = y + height
                 boxes.append((y, x+width, y+height, x))
         return boxes
 
